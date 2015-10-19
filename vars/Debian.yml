@@ -1,0 +1,5 @@
+---
+apt_package: newrelic-php5
+apt_key_url: https://download.newrelic.com/548C16BF.gpg
+apt_repository_repo: 'deb http://apt.newrelic.com/debian/ newrelic non-free'
+php_newrelic_ini_filename: newrelic

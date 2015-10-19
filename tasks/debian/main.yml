@@ -1,0 +1,8 @@
+---
+- name: debian | install new relic module for php
+  apt: name={{apt_package}} state=latest update_cache=yes cache_valid_time=3600
+
+- name: debian | enable new relic module for php
+  command: php5enmod {{php_newrelic_ini_filename}}
+  args:
+    creates: "{{ansible_local.phpinfo_core.php_config_file_scan_dir}}/{{php_newrelic_extension_priority}}-{{php_newrelic_ini_filename}}.ini"

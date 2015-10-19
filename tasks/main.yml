@@ -1,0 +1,12 @@
+---
+- name: include os-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: configure new relic extension
+  template: src=newrelic.ini.j2 dest={{php_extension_ini_dir}}/{{php_newrelic_ini_filename}}.ini
+
+- include: "debian/main.yml"
+  when: ansible_os_family == 'Debian'
+
+- include: "redhat/main.yml"
+  when: ansible_os_family == 'RedHat'

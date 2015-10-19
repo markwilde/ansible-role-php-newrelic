@@ -1,0 +1,3 @@
+---
+- name: redhat | install new relic module for php
+  yum: name={{yum_package}} state=latest update_cache=yes
